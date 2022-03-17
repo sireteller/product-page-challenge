@@ -6,11 +6,17 @@ const navDarkOverlay = document.getElementById('nav__dark-overlay');
 const navClose = document.getElementById('nav__close');
 
 navHamburgerIcon.onclick = () => {
-    navLinks.style.display = 'flex';
+    navLinks.classList.toggle("nav__links--open-hamburger");
     navDarkOverlay.style.display = 'block';
+    setTimeout(() => {
+        navDarkOverlay.style.opacity = '1';
+    }, 100);
 }
 
 navClose.onclick = () => {
-    navLinks.style.display = 'none';
-    navDarkOverlay.style.display = 'none';
+    navLinks.classList.toggle("nav__links--open-hamburger");
+    navDarkOverlay.style.opacity = '0';
+    setTimeout(() => {
+        navDarkOverlay.style.display = 'none';
+    }, 400);
 }
