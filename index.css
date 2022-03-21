@@ -552,6 +552,10 @@ a {
     padding: 0;
 }
 
+.section-product__cart-img {
+    padding-right: 10px;
+}
+
 .section-product__cart-img path {
     fill: currentColor;
 }
