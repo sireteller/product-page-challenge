@@ -134,17 +134,17 @@ const sectionProductNextBtn = document.getElementById('section-product__next-btn
 const lightbox = document.getElementById('lightbox');
 const lightboxCloseBtn = document.getElementById('lightbox__close-btn');
 
-const lbThumbnail1 = document.getElementById('lightbox__thumbnail-1');
-const lbThumbnail2 = document.getElementById('lightbox__thumbnail-2');
-const lbThumbnail3 = document.getElementById('lightbox__thumbnail-3');
-const lbThumbnail4 = document.getElementById('lightbox__thumbnail-4');
+const lightboxThumbnail1 = document.getElementById('lightbox__thumbnail-1');
+const lightboxThumbnail2 = document.getElementById('lightbox__thumbnail-2');
+const lightboxThumbnail3 = document.getElementById('lightbox__thumbnail-3');
+const lightboxThumbnail4 = document.getElementById('lightbox__thumbnail-4');
 
-const lbThumbnails = [lbThumbnail1, lbThumbnail2, lbThumbnail3, lbThumbnail4];
+const lightboxThumbnails = [lightboxThumbnail1, lightboxThumbnail2, lightboxThumbnail3, lightboxThumbnail4];
 
-const lbImgLarge = document.getElementById('lightbox__img-large');
+const lightboxImgLarge = document.getElementById('lightbox__img-large');
 
-const lbPrevBtn = document.getElementById('lightbox__prev-btn');
-const lbNextBtn = document.getElementById('lightbox__next-btn');
+const lightboxPrevBtn = document.getElementById('lightbox__prev-btn');
+const lightboxNextBtn = document.getElementById('lightbox__next-btn');
 
 // Common variables
 const largeImgSrc1 = './images/image-product-1.jpg';
@@ -174,7 +174,7 @@ const thumbnailsToLargeImg = (thumbnailsArr, imgLargeVar) => {
 }
 
 thumbnailsToLargeImg(thumbnails, imgLarge);
-thumbnailsToLargeImg(lbThumbnails, lbImgLarge);
+thumbnailsToLargeImg(lightboxThumbnails, lightboxImgLarge);
 
 // -IMAGE SWITCH WITH ARROWS-
 
@@ -216,12 +216,12 @@ sectionProductNextBtn.onclick = () => {
     nextFunc(thumbnails, imgLarge);
 }
 
-lbPrevBtn.onclick = () => {
-    prevFunc(lbThumbnails, lbImgLarge);
+lightboxPrevBtn.onclick = () => {
+    prevFunc(lightboxThumbnails, lightboxImgLarge);
 }
 
-lbNextBtn.onclick = () => {
-    nextFunc(lbThumbnails, lbImgLarge);
+lightboxNextBtn.onclick = () => {
+    nextFunc(lightboxThumbnails, lightboxImgLarge);
 }
 
 // -OPEN/CLOSE LIGHTBOX-
