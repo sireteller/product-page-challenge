@@ -21,6 +21,18 @@ body {
     cursor: default;
 }
 
+.quantity-btn--disabled {
+    color: hsl(220, 14%, 75%) !important;
+}
+
+.quantity-btn--disabled path {
+    fill: currentColor;
+}
+
+.quantity-btn--disabled:hover {
+    cursor: default !important;
+}
+
 /* CLEAR DEFAULT STYLES */
 
 button {
@@ -502,6 +514,10 @@ a {
     margin: auto auto;
     text-align: center;
     font-weight: 700;
+}
+
+.section-product__current-quantity:hover {
+    cursor: default;
 }
 
 .section-product__quantity-add-btn,

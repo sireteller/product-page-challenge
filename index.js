@@ -62,6 +62,10 @@ quantityAddBtn.onclick = () => {
     if (quantitySelectionCurrent <= 99) {
         quantitySelectionCurrent += 1;
         quantitySelection.innerHTML = quantitySelectionCurrent;
+        quantityRemoveBtn.classList.remove('quantity-btn--disabled');
+        if (quantitySelectionCurrent === 100) {
+            quantityAddBtn.classList.add('quantity-btn--disabled');
+        }
     }
 }
 
@@ -69,6 +73,10 @@ quantityRemoveBtn.onclick = () => {
     if (quantitySelectionCurrent >= 1) {
         quantitySelectionCurrent -= 1;
         quantitySelection.innerHTML = quantitySelectionCurrent;
+        quantityAddBtn.classList.remove('quantity-btn--disabled');
+        if (quantitySelectionCurrent === 0) {
+            quantityRemoveBtn.classList.add('quantity-btn--disabled');
+        }
     }
 }
 
@@ -80,6 +88,8 @@ addToCartBtn.onclick = () => {
         cartTotalPrice.innerHTML = `$${125 * quantityInCart}.00`;
         quantitySelectionCurrent = 0;
         quantitySelection.innerHTML = quantitySelectionCurrent;
+        quantityRemoveBtn.classList.add('quantity-btn--disabled');
+        quantityAddBtn.classList.remove('quantity-btn--disabled');
         checkCartFullness();
     } else {
         window.alert('This quantity would exceed your limit of sneakers per customer! (100 pairs)')
