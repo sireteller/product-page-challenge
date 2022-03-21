@@ -3,7 +3,7 @@
 const navHamburgerIcon = document.getElementById('nav__hamburger-icon');
 const navLinks = document.getElementById('nav__links');
 const navDarkOverlay = document.getElementById('nav__dark-overlay');
-const navClose = document.getElementById('nav__close');
+const navClose = document.getElementById('nav__close-btn');
 
 navHamburgerIcon.onclick = () => {
     navLinks.classList.toggle('nav__links--open-hamburger');
@@ -21,7 +21,9 @@ navClose.onclick = () => {
     }, 400);
 }
 
+
 // ---CART---
+
 // --CHANGE QUANTITY AND ADD TO CART--
 // --DISPLAY QUANTITY AND PRICE IN CART--
 const quantityAddBtn = document.getElementById('section-product__quantity-add-btn');
@@ -87,9 +89,11 @@ addToCartBtn.onclick = () => {
 // --VIEW CART--
 const navCartIcon = document.getElementById('nav__cart');
 const cart = document.getElementById('cart');
+const cartContainer = document.getElementById('cart-container');
 
 navCartIcon.onclick = () => {
     cart.classList.toggle('cart--closed');
+    cartContainer.classList.toggle('cart-container--closed')
     checkCartFullness();
 }
 
@@ -99,4 +103,124 @@ const cartRemoveButton = document.getElementById('cart__remove-btn');
 cartRemoveButton.onclick = () => {
     quantityInCart = 0;
     checkCartFullness();
+}
+
+
+// ---GALLERY AND LIGHTBOX---
+
+// Gallery variables
+const thumbnail1 = document.getElementById('section-product__thumbnail-1');
+const thumbnail2 = document.getElementById('section-product__thumbnail-2');
+const thumbnail3 = document.getElementById('section-product__thumbnail-3');
+const thumbnail4 = document.getElementById('section-product__thumbnail-4');
+
+const thumbnails = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
+
+const imgLarge = document.getElementById('section-product__img-large');
+
+const sectionProductPrevBtn = document.getElementById('section-product__prev-btn');
+const sectionProductNextBtn = document.getElementById('section-product__next-btn');
+
+// Lightbox variables
+const lightbox = document.getElementById('lightbox');
+const lightboxCloseBtn = document.getElementById('lightbox__close-btn');
+
+const lbThumbnail1 = document.getElementById('lightbox__thumbnail-1');
+const lbThumbnail2 = document.getElementById('lightbox__thumbnail-2');
+const lbThumbnail3 = document.getElementById('lightbox__thumbnail-3');
+const lbThumbnail4 = document.getElementById('lightbox__thumbnail-4');
+
+const lbThumbnails = [lbThumbnail1, lbThumbnail2, lbThumbnail3, lbThumbnail4];
+
+const lbImgLarge = document.getElementById('lightbox__img-large');
+
+const lbPrevBtn = document.getElementById('lightbox__prev-btn');
+const lbNextBtn = document.getElementById('lightbox__next-btn');
+
+// Common variables
+const largeImgSrc1 = './images/image-product-1.jpg';
+const largeImgSrc2 = './images/image-product-2.jpg';
+const largeImgSrc3 = './images/image-product-3.jpg';
+const largeImgSrc4 = './images/image-product-4.jpg';
+
+const largeImgSrcs = [largeImgSrc1, largeImgSrc2, largeImgSrc3, largeImgSrc4];
+
+const indexes = [0, 1, 2, 3];
+let currentIndex = 0;
+
+// --THUMBNAILS TO LARGE IMAGE--
+const thumbnailsToLargeImg = (thumbnailsArr, imgLargeVar) => {
+    thumbnailsArr.forEach((thumbnail, index) => {
+        thumbnail.onclick = () => {
+            imgLargeVar.src = largeImgSrcs[index];
+            thumbnail.classList.add('thumbnail--selected');
+
+            let unselectedIndexes = indexes.filter(number => index !== number);
+            unselectedIndexes.forEach(number => {
+                thumbnailsArr[number].classList.remove('thumbnail--selected');
+            })
+            currentIndex = index;
+        }
+    })
+}
+
+thumbnailsToLargeImg(thumbnails, imgLarge);
+thumbnailsToLargeImg(lbThumbnails, lbImgLarge);
+
+// --IMAGE SWITCH WITH ARROWS--
+
+prevFunc = (thumbnailsArr, imgLargeVar) => {
+    if (currentIndex === 0) {
+        currentIndex = largeImgSrcs.length - 1;
+    } else {
+        currentIndex -= 1;
+    }
+    imgLargeVar.src = largeImgSrcs[currentIndex];
+    thumbnailsArr[currentIndex].classList.add('thumbnail--selected');
+
+    let unselectedIndexes = indexes.filter(number => currentIndex !== number);
+    unselectedIndexes.forEach(number => {
+        thumbnailsArr[number].classList.remove('thumbnail--selected');
+    })
+}
+
+nextFunc = (thumbnailsArr, imgLargeVar) => {
+    if (currentIndex === largeImgSrcs.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex += 1;
+    }
+    imgLargeVar.src = largeImgSrcs[currentIndex];
+    thumbnailsArr[currentIndex].classList.add('thumbnail--selected');
+
+    let unselectedIndexes = indexes.filter(number => currentIndex !== number);
+    unselectedIndexes.forEach(number => {
+        thumbnailsArr[number].classList.remove('thumbnail--selected');
+    })
+}
+
+sectionProductPrevBtn.onclick = () => {
+    prevFunc(thumbnails, imgLarge);
+}
+
+sectionProductNextBtn.onclick = () => {
+    nextFunc(thumbnails, imgLarge);
+}
+
+lbPrevBtn.onclick = () => {
+    prevFunc(lbThumbnails, lbImgLarge);
+}
+
+lbNextBtn.onclick = () => {
+    nextFunc(lbThumbnails, lbImgLarge);
+}
+
+// --LIGHTBOX OPEN/CLOSE--
+
+imgLarge.onclick = () => {
+    lightbox.style.display = 'flex';
+}
+
+lightboxCloseBtn.onclick = () => {
+    lightbox.style.display = 'none';
 }
