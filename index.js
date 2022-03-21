@@ -1,11 +1,11 @@
 // ---MOBILE NAV OPEN/CLOSE---
 
-const navHamburgerIcon = document.getElementById('nav__hamburger-icon');
+const navHamburgerBtn = document.getElementById('nav__hamburger-btn');
 const navLinks = document.getElementById('nav__links');
 const navDarkOverlay = document.getElementById('nav__dark-overlay');
 const navClose = document.getElementById('nav__close-btn');
 
-navHamburgerIcon.onclick = () => {
+navHamburgerBtn.onclick = () => {
     navLinks.classList.toggle('nav__links--open-hamburger');
     navDarkOverlay.style.display = 'block';
     setTimeout(() => {
@@ -44,14 +44,14 @@ const cartAltText = document.getElementById('cart__alt-text');
 const checkCartFullness = () => {
     if (quantityInCart <= 0) {
         navItemCount.style.display = 'none';
-        cartItem.classList.add('cart__item--empty-cart');
-        cartCheckoutBtn.classList.add('cart__checkout-btn--empty-cart');
-        cartAltText.classList.remove('cart__alt-text--full-cart');
+        cartItem.style.display = 'none';
+        cartCheckoutBtn.style.display = 'none';
+        cartAltText.style.display = 'flex';
     } else {
         navItemCount.style.display = 'block';
-        cartItem.classList.remove('cart__item--empty-cart');
-        cartCheckoutBtn.classList.remove('cart__checkout-btn--empty-cart');
-        cartAltText.classList.add('cart__alt-text--full-cart');
+        cartItem.style.display = 'block';
+        cartCheckoutBtn.style.display = 'block';
+        cartAltText.style.display = 'none';
     }
 }
 

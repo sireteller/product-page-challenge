@@ -46,7 +46,7 @@ a {
     margin-bottom: 70px;
 }
 
-.nav__hamburger-icon,
+.nav__hamburger-btn,
 .nav__close-btn,
 .nav__dark-overlay {
     display: none;
@@ -151,12 +151,6 @@ a {
 
 .cart-container--closed {
     top: -340px !important;
-}
-
-.cart__item--empty-cart,
-.cart__checkout-btn--empty-cart,
-.cart__alt-text--full-cart {
-    display: none !important;
 }
 
 .cart-container {
@@ -611,10 +605,11 @@ a {
         margin-bottom: 20px; 
     }
 
-    .nav__hamburger-icon {
+    .nav__hamburger-btn {
         grid-area: 1 / 1 / 2 / 2;
-        display: block;
-        margin: auto auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding-left: 5px;
         color: hsl(219, 9%, 45%);
     }
@@ -625,12 +620,12 @@ a {
         color: hsl(219, 9%, 45%);
     }
 
-    .nav__hamburger-icon path,
+    .nav__hamburger-btn path,
     .nav__close-btn path {
         fill: currentColor;
     }
 
-    .nav__hamburger-icon:hover,
+    .nav__hamburger-btn:hover,
     .nav__close-btn:hover {
         cursor: pointer;
         color: hsl(220, 13%, 13%);
