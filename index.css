@@ -18,18 +18,6 @@ body {
 }
 
 .thumbnail--selected:hover {
-    cursor: default;
-}
-
-.quantity-btn--disabled {
-    color: hsl(220, 14%, 75%) !important;
-}
-
-.quantity-btn--disabled path {
-    fill: currentColor;
-}
-
-.quantity-btn--disabled:hover {
     cursor: default !important;
 }
 
@@ -538,6 +526,18 @@ a {
 .section-product__quantity-remove-btn:hover {
     cursor: pointer;
     color: hsl(26, 97%, 72%);
+}
+
+.quantity-btn--disabled {
+    color: hsl(220, 14%, 75%) !important;
+}
+
+.quantity-btn--disabled path {
+    fill: currentColor;
+}
+
+.quantity-btn--disabled:hover {
+    cursor: default !important;
 }
 
 .section-product__add-to-cart-btn {
