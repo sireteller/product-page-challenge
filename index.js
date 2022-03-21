@@ -81,10 +81,11 @@ quantityRemoveBtn.onclick = () => {
 
 addToCartBtn.onclick = () => {
     if (quantityInCart + quantitySelectionCurrent <= 100) {
+        const dollarUSLocale = Intl.NumberFormat('en-US', {style: "currency", currency: "USD"});
         quantityInCart += quantitySelectionCurrent;
         navItemCount.innerHTML = quantityInCart;
         cartItemCount.innerHTML = quantityInCart;
-        cartTotalPrice.innerHTML = `$${125 * quantityInCart}.00`;
+        cartTotalPrice.innerHTML = dollarUSLocale.format(125 * quantityInCart);
         quantitySelectionCurrent = 0;
         quantitySelection.innerHTML = quantitySelectionCurrent;
         quantityRemoveBtn.classList.add('quantity-btn--disabled');
