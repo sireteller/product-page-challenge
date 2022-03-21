@@ -1,4 +1,6 @@
 /* ---GLOBAL--- */
+/* three dashes on each side of title = large category eg ---NAVIGATION---
+    one dash on each side of title = sub-category eg -PRODUCT GALLERY- */
 
 html {
     font-size: 16px;
@@ -21,7 +23,7 @@ body {
     cursor: default !important;
 }
 
-/* CLEAR DEFAULT STYLES */
+/* Clear default styles */
 
 button {
     font-family: inherit;
@@ -366,7 +368,7 @@ a {
     height: auto;
     border-radius: 15px;
     border: 3px solid hsla(0, 0%, 100%, 0);
-    transition: opacity ease-in-out 0.1s;
+    transition: opacity ease-in-out 0.1s; 
 }
 
 .lightbox__thumbnail:hover {
@@ -381,7 +383,7 @@ a {
     grid-template: 1fr / repeat(2, 1fr)
 }
 
-/* --PRODUCT GALLERY-- */
+/* -PRODUCT GALLERY- */
 
 .section-product__gallery {
     display: flex;
@@ -420,7 +422,7 @@ a {
     opacity: 0.5;
 }
 
-/* --PRODUCT INFO-- */
+/* -PRODUCT INFO- */
 
 .section-product__info-container {
     width: 80%;
@@ -599,7 +601,7 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
-    /* ---NAVIGATION--- */
+    /* -NAVIGATION- */
     .nav {
         height: 80px;
         margin-bottom: 20px; 
@@ -682,7 +684,7 @@ a {
         height: 35px;
     }
 
-    /* ---PRODUCT SECTION--- */
+    /* -PRODUCT SECTION- */
     .section-product {
         grid-template: repeat(2, 1fr) / 1fr;
     }

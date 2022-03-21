@@ -1,4 +1,4 @@
-// ---MOBILE NAV OPEN/CLOSE---
+// ---OPEN/CLOSE MOBILE NAV---
 
 const navHamburgerBtn = document.getElementById('nav__hamburger-btn');
 const navLinks = document.getElementById('nav__links');
@@ -24,8 +24,7 @@ navClose.onclick = () => {
 
 // ---CART---
 
-// --CHANGE QUANTITY AND ADD TO CART--
-// --DISPLAY QUANTITY AND PRICE IN CART--
+// -CHANGE QUANTITY AND ADD TO CART / DISPLAY QUANTITY AND PRICE IN CART-
 const quantityAddBtn = document.getElementById('section-product__quantity-add-btn');
 const quantityRemoveBtn = document.getElementById('section-product__quantity-remove-btn');
 const quantitySelection = document.getElementById('section-product__current-quantity');
@@ -57,7 +56,7 @@ const checkCartFullness = () => {
 
 checkCartFullness();
 
-// Add chosen number of sneakers into cart
+// Choose number of sneakers and add to cart
 quantityAddBtn.onclick = () => {
     if (quantitySelectionCurrent <= 99) {
         quantitySelectionCurrent += 1;
@@ -96,7 +95,7 @@ addToCartBtn.onclick = () => {
     }
 }
 
-// --VIEW CART--
+// -OPEN/CLOSE CART-
 const navCartIcon = document.getElementById('nav__cart');
 const cart = document.getElementById('cart');
 const cartContainer = document.getElementById('cart-container');
@@ -107,7 +106,7 @@ navCartIcon.onclick = () => {
     checkCartFullness();
 }
 
-// --DELETE ITEM FROM CART--
+// -DELETE ITEM FROM CART-
 const cartRemoveButton = document.getElementById('cart__remove-btn');
 
 cartRemoveButton.onclick = () => {
@@ -158,7 +157,7 @@ const largeImgSrcs = [largeImgSrc1, largeImgSrc2, largeImgSrc3, largeImgSrc4];
 const indexes = [0, 1, 2, 3];
 let currentIndex = 0;
 
-// --THUMBNAILS TO LARGE IMAGE--
+// -THUMBNAILS TO LARGE IMAGE-
 const thumbnailsToLargeImg = (thumbnailsArr, imgLargeVar) => {
     thumbnailsArr.forEach((thumbnail, index) => {
         thumbnail.onclick = () => {
@@ -177,7 +176,7 @@ const thumbnailsToLargeImg = (thumbnailsArr, imgLargeVar) => {
 thumbnailsToLargeImg(thumbnails, imgLarge);
 thumbnailsToLargeImg(lbThumbnails, lbImgLarge);
 
-// --IMAGE SWITCH WITH ARROWS--
+// -IMAGE SWITCH WITH ARROWS-
 
 prevFunc = (thumbnailsArr, imgLargeVar) => {
     if (currentIndex === 0) {
@@ -225,7 +224,7 @@ lbNextBtn.onclick = () => {
     nextFunc(lbThumbnails, lbImgLarge);
 }
 
-// --LIGHTBOX OPEN/CLOSE--
+// -OPEN/CLOSE LIGHTBOX-
 // Disable lightbox from mobile to tablet width
 const mediaQuery = window.matchMedia('(max-width: 768px)');
 
