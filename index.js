@@ -10,7 +10,7 @@ navHamburgerBtn.onclick = () => {
     navDarkOverlay.style.display = 'block';
     setTimeout(() => {
         navDarkOverlay.style.opacity = '1';
-    }, 100);
+    }, 10);
 }
 
 navClose.onclick = () => {
@@ -18,7 +18,7 @@ navClose.onclick = () => {
     navDarkOverlay.style.opacity = '0';
     setTimeout(() => {
         navDarkOverlay.style.display = 'none';
-    }, 400);
+    }, 300);
 }
 
 
@@ -238,10 +238,16 @@ const checkLightboxEligibility = (mediaQuery) => {
     } else {
         imgLarge.onclick = () => {
             lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.style.opacity = '1';
+            }, 10);
         }
         
         lightboxCloseBtn.onclick = () => {
-            lightbox.style.display = 'none';
+            lightbox.style.opacity = '0';
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+            }, 200);
         }
     }
 }
