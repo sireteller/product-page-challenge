@@ -216,11 +216,27 @@ lbNextBtn.onclick = () => {
 }
 
 // --LIGHTBOX OPEN/CLOSE--
+// Disable lightbox from mobile to tablet width
+const mediaQuery = window.matchMedia('(max-width: 768px)');
 
-imgLarge.onclick = () => {
-    lightbox.style.display = 'flex';
+const checkLightboxEligibility = (mediaQuery) => {
+    if (mediaQuery.matches) {
+        lightbox.style.display = 'none';
+
+        imgLarge.onclick = () => {
+            lightbox.style.display = 'none';
+        }
+    } else {
+        imgLarge.onclick = () => {
+            lightbox.style.display = 'flex';
+        }
+        
+        lightboxCloseBtn.onclick = () => {
+            lightbox.style.display = 'none';
+        }
+    }
 }
 
-lightboxCloseBtn.onclick = () => {
-    lightbox.style.display = 'none';
-}
+checkLightboxEligibility(mediaQuery);
+
+mediaQuery.addEventListener('change', checkLightboxEligibility)

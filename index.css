@@ -687,6 +687,10 @@ a {
         margin: 0 auto 20px auto;
     }
 
+    .section-product__img-large:hover {
+        cursor: default;
+    }
+
     .section-product__thumbnails {
         width: 400px;
     }
