@@ -158,71 +158,66 @@ const largeImgSrcs = [largeImgSrc1, largeImgSrc2, largeImgSrc3, largeImgSrc4];
 const indexes = [0, 1, 2, 3];
 let currentIndex = 0;
 
-// -THUMBNAILS TO LARGE IMAGE-
-const thumbnailsToLargeImg = (thumbnailsArr, imgLargeVar) => {
+// -CHANGE THUMBNAILS TO LARGE IMAGE ON CLICK-
+const imgSelectionSwitcher = () => {  
+    imgLarge.src = largeImgSrcs[currentIndex];
+    lightboxImgLarge.src = largeImgSrcs[currentIndex];
+    thumbnails[currentIndex].classList.add('thumbnail--selected');
+    lightboxThumbnails[currentIndex].classList.add('thumbnail--selected');
+
+    let unselectedIndexes = indexes.filter(number => currentIndex !== number);
+    unselectedIndexes.forEach(number => {
+        thumbnails[number].classList.remove('thumbnail--selected');
+        lightboxThumbnails[number].classList.remove('thumbnail--selected');
+    })
+}
+
+const thumbnailsToLargeImg = (thumbnailsArr) => {
     thumbnailsArr.forEach((thumbnail, index) => {
         thumbnail.onclick = () => {
-            imgLargeVar.src = largeImgSrcs[index];
-            thumbnail.classList.add('thumbnail--selected');
-
-            let unselectedIndexes = indexes.filter(number => index !== number);
-            unselectedIndexes.forEach(number => {
-                thumbnailsArr[number].classList.remove('thumbnail--selected');
-            })
             currentIndex = index;
+            imgSelectionSwitcher();
         }
     })
 }
 
-thumbnailsToLargeImg(thumbnails, imgLarge);
-thumbnailsToLargeImg(lightboxThumbnails, lightboxImgLarge);
+thumbnailsToLargeImg(thumbnails);
+thumbnailsToLargeImg(lightboxThumbnails);
 
 // -IMAGE SWITCH WITH ARROWS-
 
-prevFunc = (thumbnailsArr, imgLargeVar) => {
+prevFunc = () => {
     if (currentIndex === 0) {
         currentIndex = largeImgSrcs.length - 1;
     } else {
         currentIndex -= 1;
     }
-    imgLargeVar.src = largeImgSrcs[currentIndex];
-    thumbnailsArr[currentIndex].classList.add('thumbnail--selected');
-
-    let unselectedIndexes = indexes.filter(number => currentIndex !== number);
-    unselectedIndexes.forEach(number => {
-        thumbnailsArr[number].classList.remove('thumbnail--selected');
-    })
+    imgSelectionSwitcher();
 }
 
-nextFunc = (thumbnailsArr, imgLargeVar) => {
+nextFunc = () => {
     if (currentIndex === largeImgSrcs.length - 1) {
         currentIndex = 0;
     } else {
         currentIndex += 1;
     }
-    imgLargeVar.src = largeImgSrcs[currentIndex];
-    thumbnailsArr[currentIndex].classList.add('thumbnail--selected');
-
-    let unselectedIndexes = indexes.filter(number => currentIndex !== number);
-    unselectedIndexes.forEach(number => {
-        thumbnailsArr[number].classList.remove('thumbnail--selected');
-    })
+    imgSelectionSwitcher();
 }
 
 sectionProductPrevBtn.onclick = () => {
-    prevFunc(thumbnails, imgLarge);
+    prevFunc();
 }
 
 sectionProductNextBtn.onclick = () => {
-    nextFunc(thumbnails, imgLarge);
+    nextFunc();
 }
 
 lightboxPrevBtn.onclick = () => {
-    prevFunc(lightboxThumbnails, lightboxImgLarge);
+    prevFunc();
 }
 
 lightboxNextBtn.onclick = () => {
-    nextFunc(lightboxThumbnails, lightboxImgLarge);
+    nextFunc();
 }
 
 // -OPEN/CLOSE LIGHTBOX-
