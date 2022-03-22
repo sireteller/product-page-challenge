@@ -157,12 +157,12 @@ a {
 
 .cart-container {
     width: 1200px;
-    height: 340px;
+    height: 250px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     position: absolute;
-    top: 0;
+    top: 90px;
     transition: top ease-out 0.3s;
 }
 
